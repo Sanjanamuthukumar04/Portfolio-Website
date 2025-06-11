@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjana Muthukumar | Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-bg: #84DCC6;
+            --secondary-bg: #FF686B;
+            --accent-color: #A5FFD6;
+            --text-dark: #2E6171;
+            --hover-color: #D4AFCD;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--accent-color);
+            line-height: 1.6;
+            padding-top: 80px;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: var(--secondary-bg);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 0.5rem 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .left-section {
+            flex: 1;
+        }
+
+        .name-title {
+            flex: 2;
+            text-align: left;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            padding-left: 0;
+            white-space: nowrap;
+            margin-right: auto;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .name-title {
+            font-size: 1.5rem;
+        }
+
+        .right-section {
+            flex: 3;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+        }
+
+        /* Button Styles */
+        button {
+            background: none;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            color: var(--text-dark);
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        button:hover::after {
+            width: 100%;
+        }
+
+        /* Content Styles */
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 4rem 3rem 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .content-container.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .text-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .photo-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            aspect-ratio: 3/4;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Section Container */
+        .section-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section-container.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .section-header:hover {
+            background-color: #e05f62;
+            transform: translateY(-2px);
+        }
+
+        .section-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0;
+            border-radius: 0 0 10px 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+
+        .section-content.active {
+            padding: 2rem;
+            max-height: 5000px;
+        }
+
+        /* Image Click Instructions */
+        .image-instruction {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Section Images */
+        .section-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            object-fit: cover;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .section-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .section-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .section-img:hover::after {
+            opacity: 1;
+        }
+
+        .research-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .research-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            object-fit: cover;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .research-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Project Items */
+        .project-item {
+            background-color: var(--secondary-bg);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .project-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .project-description {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .project-date {
+            font-weight: normal;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-left: 0.5rem;
+        }
+
+        /* Leadership Section */
+        .leadership-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .leadership-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .leadership-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Buttons */
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-button {
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background-color: var(--hover-color);
+            color: var(--text-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+            
+            .header {
+                flex-direction: column;
+                padding: 0.5rem;
+                gap: 0.5rem;
+            }
+            
+            .name-title {
+                text-align: center;
+                font-size: 1.5rem;
+                margin-right: 0;
+            }
+            
+            .left-section, .right-section {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .right-section {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+            }
+
+            .content-container {
+                flex-direction: column-reverse;
+                padding: 2rem 1.5rem;
+                margin: 0 auto;
+            }
+
+            .section-container {
+                padding: 0 1.5rem;
+            }
+
+            .section-images,
+            .research-images,
+            .leadership-images {
+                grid-template-columns: 1fr;
+            }
+
+            .section-img,
+            .research-img,
+            .leadership-img {
+                height: 220px;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header" id="mainHeader">
+        <div class="left-section">
+            <button onclick="scrollToSection('about')">Home</button>
+        </div>
+
+        <div class="name-title">Sanjana Muthukumar</div>
+
+        <div class="right-section">
+            <button onclick="scrollToSection('experience')">Experience</button>
+            <button onclick="scrollToSection('projects')">Projects</button>
+            <button onclick="scrollToSection('research')">Research</button>
+            <button onclick="scrollToSection('leadership')">Leadership</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+        </div>
+    </div>
+
+    <div class="content-container" id="about">
+        <div class="text-content">
+            <p>I'm a third-year Computer Science (AI) student at Manipal Institute of Technology, Bengaluru, with a strong foundation in AI, ML and data structures. My core focus areas include Deep Learning, NLP, and Data Analytics, backed by hands-on research and projects.</p>
+            <p>I am deeply interested in academic writing and solving real-world problems. Outside the classroom, I'm passionate about design, writing and creative ideation. I'm eager to apply my expertise to practical challenges while exploring emerging technologies.</p>
+        </div>
+        <div class="photo-container">
+            <img src="pics/dp.jpeg" alt="Sanjana Muthukumar" class="profile-photo">
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="section-container" id="experience">
+        <div class="section-header" onclick="toggleSection('experience-content')">
+            <span>Experience</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="section-content" id="experience-content">
+            <div class="image-instruction">Click on the image for more details</div>
+            <div class="section-images">
+                <a href="https://www.linkedin.com/posts/sanjana-muthukumar-18ab54283_for-my-nus-internship-my-team-worked-on-activity-7213502941142429697-yDL2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUMJPoBIHp552_G71_5zL6gAM0pND20EBM" target="_blank">
+                    <img src="pics/nus.jpeg" alt="NUS Internship" class="section-img">
+                </a>
+                <a href="https://www.linkedin.com/posts/sanjana-muthukumar-18ab54283_nus-corporategurukul-aws-activity-7216749924527325186-Mzsv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUMJPoBIHp552_G71_5zL6gAM0pND20EBM" target="_blank">
+                    <img src="pics/gaip.jpeg" alt="ICAS Research" class="section-img">
+                </a>
+                <a href="https://drive.google.com/file/d/1Xb9b-mukJYyoajdA8vl5YOi0gn16gxKf/view?usp=drivesdk" target="_blank">
+                    <img src="pics/logos.jpeg" alt="Graphic Design" class="section-img">
+                </a>
+            </div>
+            
+            <!-- NUS Internship -->
+            <div class="project-item">
+                <div class="project-title">Global Academic Internship Program (GAIP) - National University of Singapore</div>
+                <div class="project-description">
+                    <p>June 2024 | 3 Weeks | Organized by Corporate Gurukul in collaboration with AWS</p>
+                    <p><strong>Curriculum Highlights:</strong></p>
+                    <ul>
+                        <li>Training in Machine Learning and Deep Learning by NUS professors</li>
+                        <li>Hands-on AWS sessions covering cloud tools, model deployment, and scaling</li>
+                    </ul>
+                    <p><strong>Achievements:</strong> Ranked in top 10% in academic assessments</p>
+                </div>
+                <div class="project-tech">Technologies: Python, Machine Learning, Deep Learning, AWS</div>
+            </div>
+            
+            <!-- ICAS Research -->
+            <div class="project-item">
+                <div class="project-title">Research Intern - International Centre of Applied Sciences (ICAS) Manipal</div>
+                <div class="project-description">
+                    <p>May 2025 - Present | Research on predicting mortality using mRS in Intracerebral Hemorrhage patients</p>
+                    <ul>
+                        <li>Analyzing clinical datasets to develop predictive models for patient outcomes</li>
+                        <li>Working with medical researchers to validate findings</li>
+                        <li>Developing statistical models for mortality risk assessment</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Deep Learning, Statistical Modeling, Medical Data Analysis</div>
+            </div>
+            
+            <!-- Graphic Design Internship -->
+            <div class="project-item">
+                <div class="project-title">Graphic Design Intern - Open Horizon®</div>
+                <div class="project-description">
+                    <p>August 2023 - January 2024 | 6 Months</p>
+                    <ul>
+                        <li>Designed logos, event posters, social media creatives, and brand identity materials</li>
+                        <li>Developed branding concepts using mood boards, color palettes, typography, and layout principles</li>
+                        <li>Find my Conceptual Branding Graphic Design Portfolio that got me this role by clicking on the image.</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Tools: Adobe Illustrator, Adobe Express, Canva</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="section-container" id="projects">
+        <div class="section-header" onclick="toggleSection('projects-content')">
+            <span>Projects</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="section-content" id="projects-content">
+            <div class="image-instruction">Click on the image for live demo</div>
+            <div class="section-images">
+                <a href="https://aaxushi.github.io/hsi/" target="_blank">
+                    <img src="pics/hsi.jpeg" alt="Hyperspectral Imaging Project" class="section-img">
+                </a>
+                <a href="https://lnkd.in/gMNp6dxq" target="_blank">
+                    <img src="pics/yt.jpeg" alt="YouTube Clone" class="section-img">
+                </a>
+                <a href="https://sanjanamuthukumar04-movierecsystem-movie-rec-project-tisevu.streamlit.app/" target="_blank">
+                    <img src="pics/mr.jpeg" alt="Movie Recommendation System" class="section-img">
+                </a>
+            </div>
+            <div class="section-images" style="display: flex; justify-content: center;">
+                <a href="https://www.linkedin.com/posts/sanjana-muthukumar-18ab54283_blender-animation-3dmodeling-activity-7274759359706931200-SdUG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUMJPoBIHp552_G71_5zL6gAM0pND20EBM" target="_blank">
+                    <img src="pics/donuts.jpeg" alt="Blender Donut Animation" class="section-img" style="max-width: 300px;">
+                </a>
+            </div>
+
+            <!-- Hyperspectral Imaging Project -->
+            <div class="project-item">
+                <div class="project-title">Hyperspectral Imaging (HSI) for Land Cover Classification</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Capstone Project of GAIP internship (National University of Singapore)</li>
+                        <li>Used Indian Pines & Salinas datasets</li>
+                        <li>Applied 3D CNN and ResNet models</li>
+                        <li>Achieved 99% classification accuracy</li>
+                        <li>Focused on spectral band preprocessing, dimensionality reduction, and model evaluation</li>
+                        <li>Highest scoring team project in the batch</li>
+                        <li>Unprecedented accuracy in the past 8 years of GAIP</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Python, TensorFlow, Deep Learning, Remote Sensing</div>
+            </div>
+            
+            <!-- OCR for Indian Regional Languages -->
+            <div class="project-item">
+                <div class="project-title">OCR for Indian Regional Languages</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Developed CNN architecture for recognizing handwritten numerals</li>
+                        <li>Datasets included Urdu (Kaggle dataset) and other regional Indian language datasets</li>
+                        <li>Implemented preprocessing pipeline with Gaussian blur and Otsu's thresholding</li>
+                        <li>Deep CNN architecture with multiple convolutional layers and strategic pooling</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Python, TensorFlow, Computer Vision, OCR</div>
+            </div>
+
+            <!-- YouTube Clone -->
+            <div class="project-item">
+                <div class="project-title">Static YouTube Homepage Clone</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Static clone of YouTube homepage using HTML and CSS</li>
+                        <li>Responsive design using Flexbox and Grid</li>
+                        <li>Interactive elements with hover effects and tooltips</li>
+                        <li>Modular CSS structure for maintainable code</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: HTML5, CSS3, Responsive Design</div>
+            </div>
+
+            <!-- Movie Recommendation System -->
+            <div class="project-item">
+                <div class="project-title">Movie Recommendation System (NextWatch)</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Content-based filtering system using cosine similarity</li>
+                        <li>User inputs favorite movie, system returns similar recommendations</li>
+                        <li>Refined output from top 50 to top 30 based on user feedback</li>
+                        <li>Designed and implemented UI using Streamlit</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Python, Streamlit, Recommendation Systems</div>
+            </div>
+
+            <!-- Blender Animation -->
+            <div class="project-item">
+                <div class="project-title">Blender Donut Animation</div>
+                <div class="project-description">
+                    <ul>
+                        <li>10-second 3D animation clip created in Blender</li>
+                        <li>Designed donuts from scratch starting with torus mesh</li>
+                        <li>Added detailed glazing and sprinkles</li>
+                        <li>Used Poliigon assets for background elements</li>
+                        <li>180 frames rendered at 24fps (~3 days render time)</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Tools: Blender, Poliigon, 3D Modeling</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Research Section -->
+    <div class="section-container" id="research">
+        <div class="section-header" onclick="toggleSection('research-content')">
+            <span>Research & Publications</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="section-content" id="research-content">
+            <div class="research-images">
+                <img src="pics/confer.jpeg" alt="Conference Presentation" class="research-img">
+                <img src="pics/etcc.png" alt="ETCC Research" class="research-img">
+                <img src="pics/dubai.png" alt="Dubai Conference" class="research-img">
+            </div>
+            <div class="research-images" style="display: flex; justify-content: center;">
+                <img src="pics/disaster.jpeg" alt="Disaster Management Research" class="research-img" style="max-width: 400px;">
+            </div>
+
+            <!-- AI-Based Fake News Detection -->
+            <div class="project-item">
+                <div class="project-title">AI-Based LSTM-BERT Model for False News Detection</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Hybrid LSTM-BERT model achieving 97% accuracy</li>
+                        <li>Outperformed standalone models in detecting sophisticated misinformation</li>
+                        <li>Presented onsite at CODE AI 2025 (Manipal Dubai)</li>
+                        <li>Accepted for publication in Springer proceedings</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Python, TensorFlow, NLP, Deep Learning</div>
+            </div>
+
+            <!-- AI-Generated Content Detection -->
+            <div class="project-item">
+                <div class="project-title">Detection of AI-Generated Content Across Modalities: Text, Image and Audio</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Built the image classifier using ResNet18 with 97.5% accuracy on CIFAKE dataset</li>
+                        <li>Comparative study of VGG16 vs ResNet architectures</li>
+                        <li>Full pipeline from data sourcing to model evaluation documented</li>
+                        <li>Accepted for presentation at ETCC 2025</li>
+                        <li>To be published in IEEE Xplore</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Python, PyTorch, Computer Vision</div>
+            </div>
+
+            <!-- AI in Disaster Management Review -->
+            <div class="project-item">
+                <div class="project-title">Literature Review of Use of AI in Disaster Management</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Systematic analysis of 90+ papers across 20 years</li>
+                        <li>Novel classification into Primitive (2000-2010), Transitional (2011-2016), and Modern (2017+) eras</li>
+                        <li>Compared AI effectiveness in mitigation, preparedness, response, and recovery phases</li>
+                        <li>Submitted to Natural Resources Forum journal</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Methodology: Literature Review, Meta-Analysis</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leadership Section -->
+    <div class="section-container" id="leadership">
+        <div class="section-header" onclick="toggleSection('leadership-content')">
+            <span>Leadership & Activities</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="section-content" id="leadership-content">
+            <div class="leadership-images">
+                <img src="pics/wie.jpeg" alt="Women in Engineering Event" class="leadership-img">
+                <img src="pics/litsoc.jpeg" alt="Literature Society Event" class="leadership-img">
+                <img src="pics/quiz.jpeg" alt="Photography Club" class="leadership-img">
+            </div>
+            
+            <div class="project-item">
+                <div class="project-title">Chair, Women in Engineering (IEEE) | MIT Bengaluru <span class="project-date">(Jan 2025 – Jun 2025)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Executed 3 major events with 60-120+ participants each</li>
+                        <li>Organized <strong>Industry Connect</strong> with Google speaker for career guidance</li>
+                        <li>Conducted <strong>STEM outreach</strong> at government school for International Girls and Women in Science Day</li>
+                        <li>Hosted <strong>panel discussion</strong> where female interns shared their journey</li>
+                        <li>Published <strong>2 LinkedIn articles</strong> and tripled social media engagement</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-title">President, The Literature Society | MIT Bengaluru <span class="project-date">(Aug 2023 – Aug 2024)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Organized <strong>10+ literary events</strong> including Harry Potter Fest, open mics, and poetry contests (30-100+ participants)</li>
+                        <li>Led Book Club discussions and managed a team of 10 committee members</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-title">Head of Creative Content, Photography Club | MIT Bengaluru <span class="project-date">(Jan 2024 – Dec 2024)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Directed content creation for social media and exhibitions, gaining experience in ideation and creative writing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-title">Editorial Board (Magnolia - College Magazine) | MIT Bengaluru <span class="project-date">(Feb 2023 – May 2023)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Led a team to research, write, and publish <strong>8 How-To articles</strong> on various topics for student guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section-container" id="contact">
+        <div class="section-header" onclick="toggleSection('contact-content')">
+            <span>Contact & Links</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="section-content" id="contact-content">
+            <div class="project-item" style="text-align: center;">
+                <div class="contact-buttons">
+                    <a href="mailto:sanjana1.mitblr2022@learner.manipal.edu" class="contact-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/sanjana-muthukumar-18ab54283/" target="_blank" class="contact-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/Sanjanamuthukumar04" target="_blank" class="contact-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://drive.google.com/file/d/11nXFJxSyevuaOq1lwZb7LJ4XzJ5YupU0/view?usp=sharing" target="_blank" class="contact-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('mainHeader');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Toggle sections with animation
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const icon = section.previousElementSibling.querySelector('.toggle-icon');
+        
+        // Close all other sections first
+        if (!section.classList.contains('active')) {
+            document.querySelectorAll('.section-content.active').forEach(openSection => {
+                if (openSection.id !== sectionId) {
+                    openSection.classList.remove('active');
+                    openSection.previousElementSibling.querySelector('.toggle-icon').textContent = '+';
+                }
+            });
+        }
+        
+        section.classList.toggle('active');
+        icon.textContent = section.classList.contains('active') ? '-' : '+';
+        
+        // Smooth scroll to section when opening
+        if (section.classList.contains('active')) {
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    }
+
+    // Smooth scrolling to sections
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Auto-expand if collapsed
+            const contentId = `${sectionId}-content`;
+            if (contentId && document.getElementById(contentId) && !document.getElementById(contentId).classList.contains('active')) {
+                toggleSection(contentId);
+            }
+        }
+    }
+
+    // Fade-in animations on scroll with intersection observer
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                fadeInObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.content-container, .section-container').forEach(element => {
+        fadeInObserver.observe(element);
+    });
+
+    // Animate the about section immediately
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.content-container').classList.add('fade-in');
+        
+        // Add ripple effect to buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+                
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 1000);
+            });
+        });
+
+        // Add hover effect to project items
+        const projectItems = document.querySelectorAll('.project-item');
+        projectItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.15)';
+            });
+            
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-3px)';
+                }, 150);
+            });
+        });
+
+        // Add animation to images on hover
+        const images = document.querySelectorAll('.section-img, .research-img, .leadership-img');
+        images.forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1.03)';
+            });
+        });
+    });
+
+
+    // Typewriter effect for the name title
+    function typeWriterEffect() {
+        const nameTitle = document.querySelector('.name-title');
+        if (nameTitle) {
+            const text = nameTitle.textContent;
+            nameTitle.textContent = '';
+            
+            let i = 0;
+            const speed = 100; // typing speed in ms
+            
+            function type() {
+                if (i < text.length) {
+                    nameTitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+    }
+
+    // Initialize typewriter effect after page load
+    window.addEventListener('load', typeWriterEffect);
+</script>
+</body>
+</html>
