@@ -831,25 +831,49 @@
         if (section.classList.contains('active')) {
             setTimeout(() => {
                 section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 100);
+            }, 500);
         }
     }
 
-    // Smooth scrolling to sections
-    function scrollToSection(sectionId) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth'
-            });
-            
+    // Smooth scrolling to section headers with expansion delay
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        // Find the section header within the section
+        const sectionHeader = section.querySelector('.section-header');
+        if (sectionHeader) {
             // Auto-expand if collapsed
             const contentId = `${sectionId}-content`;
-            if (contentId && document.getElementById(contentId) && !document.getElementById(contentId).classList.contains('active')) {
+            const content = document.getElementById(contentId);
+            const wasCollapsed = content && !content.classList.contains('active');
+            
+            if (wasCollapsed) {
+                // First expand the section
                 toggleSection(contentId);
+                
+                // Wait for the expansion animation to complete (500ms matches CSS transition)
+                setTimeout(() => {
+                    scrollToHeader(sectionHeader);
+                }, 500); // Matches the CSS transition duration
+            } else {
+                // Scroll immediately if already expanded
+                scrollToHeader(sectionHeader);
             }
         }
     }
+}
+
+// Helper function for the actual scrolling
+function scrollToHeader(headerElement) {
+    const headerHeight = document.getElementById('mainHeader').offsetHeight;
+    const elementPosition = headerElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px extra padding
+    
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
 
     // Fade-in animations on scroll with intersection observer
     const fadeInObserver = new IntersectionObserver((entries) => {
