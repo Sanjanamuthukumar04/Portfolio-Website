@@ -814,33 +814,18 @@
         const section = document.getElementById(sectionId);
         const icon = section.previousElementSibling.querySelector('.toggle-icon');
         
-        // Close all other sections first
-        if (!section.classList.contains('active')) {
-            document.querySelectorAll('.section-content.active').forEach(openSection => {
-                if (openSection.id !== sectionId) {
-                    openSection.classList.remove('active');
-                    openSection.previousElementSibling.querySelector('.toggle-icon').textContent = '+';
-                }
-            });
-        }
-        
+        // Toggle the section
         section.classList.toggle('active');
         icon.textContent = section.classList.contains('active') ? '-' : '+';
-        
-        // Smooth scroll to section when opening
-        if (section.classList.contains('active')) {
-            setTimeout(() => {
-                section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 500);
-        }
     }
 
-    // Smooth scrolling to section headers with expansion delay
-function scrollToSection(sectionId) {
+    // Smooth scrolling to sections with header offset
+    function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
         // Find the section header within the section
-        const sectionHeader = section.querySelector('.section-header');
+        const sectionHeader = section.querySelector('.section-header') || section.querySelector('h2, h3') || section;
+
         if (sectionHeader) {
             // Auto-expand if collapsed
             const contentId = `${sectionId}-content`;
