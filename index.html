@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjana Muthukumar | Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header" id="mainHeader">
+        <div class="left-section">
+            <button onclick="scrollToSection('about')">Home</button>
+        </div>
+
+        <div class="name-title">Sanjana Muthukumar</div>
+
+        <div class="right-section">
+            <button onclick="scrollToSection('experience')">Experience</button>
+            <button onclick="scrollToSection('projects')">Projects</button>
+            <button onclick="scrollToSection('research')">Research</button>
+            <button onclick="scrollToSection('leadership')">Leadership</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+        </div>
+    </div>
+
+    <div class="content-container" id="about">
+        <div class="text-content">
+            <p>I’m a final-year Computer Science (AI) student at Manipal Institute of Technology, Bengaluru, with a strong foundation in AI, ML, and software development. My focus areas include Deep Learning, NLP, Data Analytics, and web development, supported by hands-on research and projects.</p>
+            <p>I’m passionate about academic writing and solving real-world problems through technology. Beyond academics, I enjoy design, creative writing, and ideation. I’m eager to apply my skills to practical challenges while exploring emerging technologies.</p>
+        </div>
+        <div class="photo-container">
+            <img src="pics/dp.jpeg" alt="Sanjana Muthukumar" class="profile-photo">
+        </div>
+    </div>
+
+<!-- Experience Section -->
+<div class="section-container" id="experience">
+    <div class="section-header" onclick="toggleSection('experience-content')">
+        <span>Experience</span>
+        <span class="toggle-icon">+</span>
+    </div>
+    <div class="section-content" id="experience-content">
+        <div class="image-instruction">Click on the image for more details</div>
+        <div class="section-images">
+            <a href="https://www.linkedin.com/posts/sanjana-muthukumar-18ab54283_im-excited-to-share-that-ive-completed-activity-7344669270036922370-oPuT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUMJPoBIHp552_G71_5zL6gAM0pND20EBM" target="_blank">
+                <img src="pics/ICAS.jpg" alt="ICAS Research" class="section-img">
+            </a>
+            <a href="https://www.linkedin.com/posts/sanjana-muthukumar-18ab54283_nus-corporategurukul-aws-activity-7216749924527325186-Mzsv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUMJPoBIHp552_G71_5zL6gAM0pND20EBM" target="_blank">
+                <img src="pics/GAIP.jpeg" alt="GAIP Program" class="section-img">
+            </a>
+            <a href="https://drive.google.com/file/d/1Xb9b-mukJYyoajdA8vl5YOi0gn16gxKf/view?usp=drivesdk" target="_blank">
+                <img src="pics/Logos.jpeg" alt="Graphic Design" class="section-img">
+            </a>
+        </div>
+        
+        <!-- ICAS Research -->
+        <div class="project-item">
+            <div class="project-title">Research Intern - International Centre of Applied Sciences (ICAS) Manipal</div>
+            <div class="project-description">
+                <p>May 2025 - June 2025 | 40 days</p>
+                <ul>
+                    <li>Research on predicting mortality using mRS in Intracerebral Hemorrhage patients</li>
+                    <li>Predicted Intracerebral Hemorrhage (ICH) patient mortality using mRS scores (0-6 scale)</li>
+                    <li>Preprocessed hospital data (under NDA) using TVAE, Bootstrap, and SMOTE, reducing error by 30-35%</li>
+                    <li>Benchmarked 10+ models including Random Forest, LightGBM, CatBoost, Naive Bayes, and others</li>
+                </ul>
+            </div>
+            <div class="project-tech">Technologies: Deep Learning, Statistical Modeling, Medical Data Analysis</div>
+        </div>
+        
+        <!-- GAIP Program -->
+        <div class="project-item">
+            <div class="project-title">Global Academic Internship Program (GAIP) - National University of Singapore</div>
+            <div class="project-description">
+                <p>June 2024 | 3 Weeks | Organized by Corporate Gurukul in collaboration with AWS</p>
+                <p><strong>Curriculum Highlights:</strong></p>
+                <ul>
+                    <li>Training in Machine Learning and Deep Learning by NUS professors</li>
+                    <li>Hands-on AWS sessions covering cloud tools, model deployment, and scaling</li>
+                </ul>
+                <p><strong>Achievements:</strong> Ranked in top 10% in academic assessments</p>
+            </div>
+            <div class="project-tech">Technologies: Python, Machine Learning, Deep Learning, AWS</div>
+        </div>
+        
+        <!-- Graphic Design Internship -->
+        <div class="project-item">
+            <div class="project-title">Graphic Design Intern - Open Horizon®</div>
+            <div class="project-description">
+                <p>August 2023 - January 2024 | 6 Months</p>
+                <ul>
+                    <li>Designed logos, event posters, social media creatives, and brand identity materials</li>
+                    <li>Developed branding concepts using mood boards, color palettes, typography, and layout principles</li>
+                    <li>Find my Conceptual Branding Graphic Design Portfolio that got me this role by clicking on the image.</li>
+                </ul>
+            </div>
+            <div class="project-tech">Tools: Adobe Illustrator, Adobe Express, Canva</div>
+        </div>
+    </div>
+</div>
+
+    <!-- Projects Section -->
+<div class="section-container" id="projects">
+    <div class="section-header" onclick="toggleSection('projects-content')">
+        <span>Projects</span>
+        <span class="toggle-icon">+</span>
+    </div>
+    <div class="section-content" id="projects-content">
+        <div class="image-instruction">Click on the image for live demo</div>
+        <div class="section-images">
+            <a href="https://aaxushi.github.io/hsi/" target="_blank">
+                <img src="pics/hsi.jpeg" alt="Hyperspectral Imaging Project" class="section-img">
+            </a>
+            <a href="https://sanjanamuthukumar04.github.io/YouTube-Clone/" target="_blank">
+                <img src="pics/yt.jpeg" alt="YouTube Clone" class="section-img">
+            </a>
+            <a href="https://sanjanamuthukumar04.github.io/amazon-clone/" target="_blank">
+                <img src="pics/amazon.jpg" alt="Amazon Clone" class="section-img">
+            </a>
+        </div>
+        <div class="section-images" style="display: flex; justify-content: center;">
+            <a href="https://sanjanamuthukumar04-movierecsystem-movie-rec-project-tisevu.streamlit.app/" target="_blank">
+                <img src="pics/mr.jpeg" alt="Movie Recommendation System" class="section-img" style="max-width: 300px;">
+            </a>
+            <a href="https://www.linkedin.com/posts/sanjana-muthukumar-18ab54283_blender-animation-3dmodeling-activity-7274759359706931200-SdUG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUMJPoBIHp552_G71_5zL6gAM0pND20EBM" target="_blank">
+                <img src="pics/Donuts.jpeg" alt="Blender Donut Animation" class="section-img" style="max-width: 300px;">
+            </a>
+        </div>
+
+        <!-- Hyperspectral Imaging Project -->
+        <div class="project-item">
+            <div class="project-title">Hyperspectral Imaging (HSI) for Land Cover Classification</div>
+            <div class="project-description">
+                <ul>
+                    <li>Capstone Project of GAIP internship (National University of Singapore)</li>
+                    <li>Used Indian Pines & Salinas datasets</li>
+                    <li>Applied 3D CNN and ResNet models</li>
+                    <li>Achieved 99% classification accuracy</li>
+                    <li>Focused on spectral band preprocessing, dimensionality reduction, and model evaluation</li>
+                    <li>Highest scoring team project in the batch</li>
+                    <li>Unprecedented accuracy in the past 8 years of GAIP</li>
+                </ul>
+            </div>
+            <div class="project-tech">Technologies: Python, TensorFlow, Deep Learning, Remote Sensing</div>
+        </div>
+
+        <!-- YouTube Clone -->
+        <div class="project-item">
+            <div class="project-title">Static YouTube Homepage Clone</div>
+            <div class="project-description">
+                <ul>
+                    <li>Static clone of YouTube homepage using HTML and CSS</li>
+                    <li>Responsive design using Flexbox and Grid</li>
+                    <li>Interactive elements with hover effects and tooltips</li>
+                    <li>Modular CSS structure for maintainable code</li>
+                </ul>
+            </div>
+            <div class="project-tech">Technologies: HTML5, CSS3, Responsive Design</div>
+        </div>
+
+        <!-- Amazon Clone -->
+        <div class="project-item">
+            <div class="project-title">Amazon E-Commerce Clone</div>
+            <div class="project-description">
+                <ul>
+                    <li>Full-featured e-commerce interface with product browsing and cart management</li>
+                    <li>Dynamic cart updates with quantity adjustment and item removal</li>
+                    <li>Checkout flow with delivery options and real-time price calculations</li>
+                    <li>Persistent user data using Local Storage API</li>
+                </ul>
+            </div>
+            <div class="project-tech">Technologies: JavaScript, DOM Manipulation, Local Storage API</div>
+        </div>
+
+        <!-- Movie Recommendation System -->
+        <div class="project-item">
+            <div class="project-title">Movie Recommendation System (NextWatch)</div>
+            <div class="project-description">
+                <ul>
+                    <li>Content-based filtering system using cosine similarity</li>
+                    <li>User inputs favorite movie, system returns similar recommendations</li>
+                    <li>Refined output from top 50 to top 30 based on user feedback</li>
+                    <li>Designed and implemented UI using Streamlit</li>
+                </ul>
+            </div>
+            <div class="project-tech">Technologies: Python, Streamlit, Recommendation Systems</div>
+        </div>
+
+        <!-- OCR for Indian Regional Languages -->
+        <div class="project-item">
+            <div class="project-title">OCR for Indian Regional Languages</div>
+            <div class="project-description">
+                <ul>
+                    <li>Developed CNN architecture for recognizing handwritten numerals</li>
+                    <li>Datasets included Urdu (Kaggle dataset) and other regional Indian language datasets</li>
+                    <li>Implemented preprocessing pipeline with Gaussian blur and Otsu's thresholding</li>
+                    <li>Deep CNN architecture with multiple convolutional layers and strategic pooling</li>
+                </ul>
+            </div>
+            <div class="project-tech">Technologies: Python, TensorFlow, Computer Vision, OCR</div>
+        </div>
+
+        <!-- Blender Animation -->
+        <div class="project-item">
+            <div class="project-title">Blender Donut Animation</div>
+            <div class="project-description">
+                <ul>
+                    <li>10-second 3D animation clip created in Blender</li>
+                    <li>Designed donuts from scratch starting with torus mesh</li>
+                    <li>Added detailed glazing and sprinkles</li>
+                    <li>Used Poliigon assets for background elements</li>
+                    <li>180 frames rendered at 24fps (~3 days render time)</li>
+                </ul>
+            </div>
+            <div class="project-tech">Tools: Blender, Poliigon, 3D Modeling</div>
+        </div>
+    </div>
+</div>
+    <!-- Research Section -->
+    <div class="section-container" id="research">
+        <div class="section-header" onclick="toggleSection('research-content')">
+            <span>Research & Publications</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="section-content" id="research-content">
+            <div class="research-images">
+                <img src="pics/confer.jpeg" alt="Conference Presentation" class="research-img">
+                <img src="pics/ETCC.png" alt="ETCC Research" class="research-img">
+                <img src="pics/Dubai.png" alt="Dubai Conference" class="research-img">
+            </div>
+            <div class="research-images" style="display: flex; justify-content: center;">
+                <img src="pics/disaster.jpeg" alt="Disaster Management Research" class="research-img" style="max-width: 400px;">
+            </div>
+
+            <!-- AI-Based Fake News Detection -->
+            <div class="project-item">
+                <div class="project-title">AI-Based LSTM-BERT Model for False News Detection</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Hybrid LSTM-BERT model achieving 97% accuracy</li>
+                        <li>Outperformed standalone models in detecting sophisticated misinformation</li>
+                        <li>Presented onsite at CODE AI 2025 (Manipal Dubai)</li>
+                        <li>Accepted for publication in Springer proceedings</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Python, TensorFlow, NLP, Deep Learning</div>
+            </div>
+
+            <!-- AI-Generated Content Detection -->
+            <div class="project-item">
+                <div class="project-title">Detection of AI-Generated Content Across Modalities: Text, Image and Audio</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Built the image classifier using ResNet18 with 97.5% accuracy on CIFAKE dataset</li>
+                        <li>Comparative study of VGG16 vs ResNet architectures</li>
+                        <li>Full pipeline from data sourcing to model evaluation documented</li>
+                        <li>Presented onsite at ETCC 2025 (PES Bengaluru)</li>
+                        <li>Accepted for publication in IEEE Xplore</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Technologies: Python, PyTorch, Computer Vision</div>
+            </div>
+
+            <!-- AI in Disaster Management Review -->
+            <div class="project-item">
+                <div class="project-title">Literature Review of Use of AI in Disaster Management</div>
+                <div class="project-description">
+                    <ul>
+                        <li>Systematic analysis of 90+ papers across 20 years</li>
+                        <li>Novel classification into Primitive (2000-2010), Transitional (2011-2016), and Modern (2017+) eras</li>
+                        <li>Compared AI effectiveness in mitigation, preparedness, response, and recovery phases</li>
+                        <li>Submitted to Natural Resources Forum journal</li>
+                    </ul>
+                </div>
+                <div class="project-tech">Methodology: Literature Review, Meta-Analysis</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leadership Section -->
+    <div class="section-container" id="leadership">
+        <div class="section-header" onclick="toggleSection('leadership-content')">
+            <span>Leadership & Activities</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="section-content" id="leadership-content">
+            <div class="leadership-images">
+                <img src="pics/wie.jpeg" alt="Women in Engineering Event" class="leadership-img">
+                <img src="pics/litsoc.jpeg" alt="Literature Society Event" class="leadership-img">
+                <img src="pics/quiz.jpeg" alt="Photography Club" class="leadership-img">
+            </div>
+            
+            <div class="project-item">
+                <div class="project-title">Chair, Women in Engineering (IEEE) | MIT Bengaluru <span class="project-date">(Jan 2025 – Jun 2025)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Executed 3 major events with 60-120+ participants each</li>
+                        <li>Organized <strong>Industry Connect</strong> with Google speaker for career guidance</li>
+                        <li>Conducted <strong>STEM outreach</strong> at government school for International Girls and Women in Science Day</li>
+                        <li>Hosted <strong>panel discussion</strong> where female interns shared their journey</li>
+                        <li>Published <strong>2 LinkedIn articles</strong> and tripled social media engagement</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="project-item">
+
+            <div class="project-item">
+                <div class="project-title">President, The Literature Society | MIT Bengaluru <span class="project-date">(Aug 2023 – Aug 2024)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Organized <strong>10+ literary events</strong> including Harry Potter Fest, open mics, and poetry contests (30-100+ participants)</li>
+                        <li>Led Book Club discussions and managed a team of 10 committee members</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-title">Head of Creative Content, Photography Club | MIT Bengaluru <span class="project-date">(Jan 2024 – Dec 2024)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Directed content creation for social media and exhibitions, gaining experience in ideation and creative writing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-title">Editorial Board (Magnolia - College Magazine) | MIT Bengaluru <span class="project-date">(Feb 2023 – May 2023)</span></div>
+                <div class="project-description">
+                    <ul>
+                        <li>Led a team to research, write, and publish <strong>8 How-To articles</strong> on various topics for student guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+<div class="section-container" id="contact">
+    <div class="section-header" onclick="toggleSection('contact-content')">
+        <span>Contact & Links</span>
+        <span class="toggle-icon">+</span>
+    </div>
+    <div class="section-content" id="contact-content">
+        <div class="project-item" style="text-align: center;">
+            <div class="contact-buttons">
+                <a href="mailto:sanjana1.mitblr2022@learner.manipal.edu" class="contact-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Email
+                </a>
+                <a href="https://www.linkedin.com/in/sanjana-muthukumar-18ab54283/" target="_blank" class="contact-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/Sanjanamuthukumar04" target="_blank" class="contact-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://drive.google.com/file/d/1cycWQiCvQv-f9G-JvsDo3N6ARjCiBzfE/view?usp=sharing" target="_blank" class="contact-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="portfolio.js"></script>
+</body>
+</html>
