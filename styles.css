@@ -435,3 +435,35 @@ button:hover::after {
         align-items: center;
     }
 }
+
+.section-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* spacing between images */
+}
+
+.section-images a {
+  flex: 1 1 300px; /* grow, shrink, basis 300px */
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.section-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Optional: smaller screens - stack images */
+@media (max-width: 600px) {
+  .section-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  .section-images a {
+    max-width: 90%;
+    flex: none;
+  }
+}
